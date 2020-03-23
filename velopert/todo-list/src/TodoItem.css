@@ -1,0 +1,32 @@
+.todo-item{
+    display: flex;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.text {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+}
+
+.text-checked{
+    text-decoration: line-through;
+    color: gray;
+    text-align: center;
+}
+
+.check-mark {
+    color:green;
+    font-weight: bold;
+}
+.delete-mark {
+    opacity: 0;
+}
+
+.todo-item:hover .delete-mark{
+    opacity: 1;
+    color :red;
+    font-size: 1.5rem;
+    font-weight: 700;
+}

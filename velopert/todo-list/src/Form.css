@@ -1,0 +1,15 @@
+.form {
+    margin: 1rem;
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+}
+
+.form input {
+    border-bottom: #d0ebff;
+}
+
+.add-button {
+    background: #d0ebff;
+    border-radius: 5px;
+}

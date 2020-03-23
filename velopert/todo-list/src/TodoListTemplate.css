@@ -1,0 +1,16 @@
+.todo-list-template {
+    width: 600px;
+    margin: 0 auto;
+    background: #d0ebff;
+    align-items: center;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.form-wrapper {
+    background: #d0ebff;
+    border-bottom: #d0ebff;
+}
+.todos-wrapper {
+    background: #d0ebff;
+}
