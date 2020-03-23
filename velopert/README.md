@@ -1,1 +1,2 @@
-"https://velopert.com/3480 º¸°í °øºÎ" 
+"https://velopert.com/3480 ë³´ê³  ê³µë¶€
+
