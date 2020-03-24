@@ -1,15 +1,30 @@
 .form {
-    margin: 1rem;
-    padding: 1rem;
     align-items: center;
-    display: flex;
+    display : flex;
 }
 
 .form input {
+    font-size: 1.25rem;
     border-bottom: #d0ebff;
+    flex: 1;
+    outline:none;
+    border: none;
+    border-bottom: 1px solid #b1dafa;
+
 }
 
 .add-button {
-    background: #d0ebff;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-left: 1rem;
+    background: #b1dafa;
+    color: white;
+    font-weight: 500;
     border-radius: 5px;
+    cursor: pointer;
+}
+.add-button:hover {
+    background: #8ac8f8;
 }

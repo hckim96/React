@@ -1,29 +1,64 @@
 import React, {Component} from 'react';
-import './App.css';
 import TodoListTemplate from './TodoListTemplate';
 import TodoItemList from './TodoItemList';
 import Form from './Form';
+import Palette from './Palette';
 
 
 class App extends Component {
-  id = 3;
+  id = 4;
+  colors = ['#343a40', '#f03e3e', '#12b886', '#228ae6'];
+
   state = {
     input : '',
+    color : '#b1dafa',
     todos : [
       {id: 0, text: "abcd true", checked: true},
       {id: 1, text: "qwer false", checked: false},
-      {id: 2, text: "zxcv false", checked: false}
+      {id: 2, text: "zxcv false", checked: false},
+      {id: 3, text: "bnmg true", checked: true}
     ]
   }
+  
+  render(){
+    const {input, todos,color} = this.state;
+    return (
+      <div>
+        <TodoListTemplate form = {<Form
+                                    color = {color}
+                                    value = {input}
+                                    onChange = {this.handleChange}
+                                    onKeyPress = {this.handleKeyPress}
+                                    onCreate = {this.handleCreate}
+                                    onClick = {this.handleCreate}/>}
+                            palette = {<Palette 
+                              colors = {this.colors}
+                              selected = {this.state.color}
+                              onSelect = {this.handleColor}
+                            />}>
+          
+          <TodoItemList todos = {todos}
+                        onToggle = {this.handleToggle}
+                        onRemove = {this.handleRemove}>
+          </TodoItemList>
+          
+        </TodoListTemplate>
+          
+      </div>
+    );
+  }
 
+  handleColor = (color) => {
+    this.setState({
+      color : color
+    })
+  }
   handleCreate = () => {
     const {input,todos} = this.state;
     this.setState({
       input: '',
       todos: todos.concat({id: this.id++, text: input, checked: false})
     })
-    
-    
   }
 
   handleChange = (e) => {
@@ -60,25 +95,6 @@ class App extends Component {
     this.setState({
       todos: todos.filter(todo => todo.id !== id)
     });
-  }
-  render(){
-    const {input, todos} = this.state;
-    return (
-      <div>
-        <TodoListTemplate form = {<Form
-                                    value = {input}
-                                    onChange = {this.handleChange}
-                                    onKeyPress = {this.handleKeyPress}
-                                    onCreate = {this.handleCreate}
-                                    onClick = {this.handleCreate}/>}>
-          <TodoItemList todos = {todos}
-                        onToggle = {this.handleToggle}
-                        onRemove = {this.handleRemove}>
-          </TodoItemList>
-        </TodoListTemplate>
-
-      </div>
-    );
   }
 }
 

@@ -5,11 +5,11 @@ class Form extends Component{
 
     
     render(){
-        const {value, onChange, onCreate, onClick, onKeyPress} = this.props;
-
+        const {color,value, onChange, onCreate, onClick, onKeyPress} = this.props;
+        
         return(
-            <div className = "form" >
-                <input
+            <div className = "form"  >
+                <input style ={{color : color}}
                     value = {value}
                     onCreate = {onCreate}
                     onChange = {onChange}

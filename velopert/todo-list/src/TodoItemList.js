@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import TodoItem from './TodoItem';
 
+import './TodoItemList.css';
+
 class TodoItemList extends Component {
 
     render(){

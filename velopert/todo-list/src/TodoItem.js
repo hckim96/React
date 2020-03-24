@@ -14,14 +14,12 @@ class TodoItem extends Component {
                     &times;
                 </div>
                 <div className = {`text${checked ? '-checked' : ''}`}>
-                    {text}
+                    <div>{text}</div>
                 </div>
-                <div>
-                    {checked && <div className = "check-mark"> &#10003;</div>}
-                </div>
+                    {checked && <div className = "check-mark">&#x2713;</div>}
                 
             </div>
-        )
+        );
     }
 }
 
