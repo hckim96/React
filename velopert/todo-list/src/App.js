@@ -4,19 +4,19 @@ import TodoItemList from './TodoItemList';
 import Form from './Form';
 import Palette from './Palette';
 
+const colors = ['#343a40', '#f03e3e', '#12b886', '#228ae6','chartreuse','blueviolet','cadetblue', 'burlywood','blanchedalmond'];
 
 class App extends Component {
   id = 4;
-  colors = ['#343a40', '#f03e3e', '#12b886', '#228ae6'];
 
   state = {
     input : '',
-    color : '#b1dafa',
+    color : '#343a40',
     todos : [
-      {id: 0, text: "abcd true", checked: true},
-      {id: 1, text: "qwer false", checked: false},
-      {id: 2, text: "zxcv false", checked: false},
-      {id: 3, text: "bnmg true", checked: true}
+      {id: 0, text: "abcd true", checked: true, color: 'black'},
+      {id: 1, text: "qwer false", checked: false, color: 'black'},
+      {id: 2, text: "zxcv false", checked: false, color: 'black'},
+      {id: 3, text: "bnmg true", checked: true, color: 'black'}
     ]
   }
   
@@ -32,14 +32,15 @@ class App extends Component {
                                     onCreate = {this.handleCreate}
                                     onClick = {this.handleCreate}/>}
                             palette = {<Palette 
-                              colors = {this.colors}
-                              selected = {this.state.color}
+                              colors = {colors}
+                              selected = {color}
                               onSelect = {this.handleColor}
                             />}>
           
           <TodoItemList todos = {todos}
                         onToggle = {this.handleToggle}
-                        onRemove = {this.handleRemove}>
+                        onRemove = {this.handleRemove}
+                        >
           </TodoItemList>
           
         </TodoListTemplate>
@@ -54,10 +55,10 @@ class App extends Component {
     })
   }
   handleCreate = () => {
-    const {input,todos} = this.state;
+    const {input,todos,color} = this.state;
     this.setState({
       input: '',
-      todos: todos.concat({id: this.id++, text: input, checked: false})
+      todos: todos.concat({id: this.id++, text: input, checked: false, color: color})
     })
   }
 

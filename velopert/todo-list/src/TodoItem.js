@@ -3,7 +3,7 @@ import './TodoItem.css';
 class TodoItem extends Component {
 
     render(){
-        const {id, text, checked,onToggle, onRemove} = this.props;
+        const {color,id, text, checked,onToggle, onRemove} = this.props;
 
         console.log('render');
         return(
@@ -14,7 +14,7 @@ class TodoItem extends Component {
                     &times;
                 </div>
                 <div className = {`text${checked ? '-checked' : ''}`}>
-                    <div>{text}</div>
+                    <div style = {{color: color}}>{text}</div>
                 </div>
                     {checked && <div className = "check-mark">&#x2713;</div>}
                 
