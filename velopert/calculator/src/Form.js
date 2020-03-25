@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
+import './Form.css';
 
 class Form extends Component{
     render(){
-        const {value, onChange} = this.props;
-        
+        const {value, onChange, onKeyPress} = this.props;
+
         return(
-            <div className = "Form">
+            <div className = "form">
                 <input
                     value = {value}
                     onChange = {onChange}
+                    onKeyPress = {onKeyPress}
                     />
-
-
             </div>
 
         )

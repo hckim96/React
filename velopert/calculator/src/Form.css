@@ -1,0 +1,9 @@
+.form {
+    display : flex;
+}
+.form input {
+    text-align: right;
+    margin: .5rem;
+    flex: 1;
+    height: 2rem;
+}
