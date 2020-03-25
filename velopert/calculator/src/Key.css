@@ -1,0 +1,14 @@
+.key {
+    width: 25%;
+    height: 1rem;
+    opacity: 1;
+    transition: all 0.25s;
+    margin: .25rem;
+    padding-bottom: 2px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.key:hover {
+    opacity: .75;
+}
