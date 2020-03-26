@@ -7,8 +7,15 @@
     padding-bottom: 2px;
     border: 1px solid black;
     text-align: center;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 500;
 }
 
 .key:hover {
     opacity: .75;
+}
+
+.key:active {
+    opacity: .25;
 }

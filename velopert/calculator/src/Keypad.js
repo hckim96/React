@@ -8,7 +8,7 @@ class Keypad extends Component {
 
         const keyList = keys.map(
             (key) => (<Key myKey = {key}
-                            onClick = {onClick}
+                            onClick = {() => onClick(key)}
                             key = {key}/>
             )
         )
