@@ -1,15 +1,18 @@
 .key {
-    width: 20%;
-    height: 1rem;
+    width: 60px;
+    height: 1.5rem;
+    padding-top: .5rem;
+
     opacity: 1;
     transition: all 0.25s;
-    margin: .25rem;
     padding-bottom: 2px;
     border: 1px solid black;
     text-align: center;
     cursor: pointer;
     user-select: none;
     font-weight: 500;
+    background: rgb(167, 165, 165);
+    margin: .25rem;
 }
 
 .key:hover {
