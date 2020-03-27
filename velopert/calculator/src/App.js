@@ -10,11 +10,6 @@ class App extends Component {
   state = {
     input : '',
     operator: '',
-    fisrtOperand: 0,
-    secondOperand: 0,
-    result: 0,
-    noOperand: true,
-    
   }
 
   handleChange = (e) => {
@@ -33,30 +28,46 @@ class App extends Component {
     
   }
 
-  calculate = () => {
-    let str = this.state.input;
-    const arr = str.split(/[^\d{10}$]/);
-    let i = 0;
-    while (str.search(/[^\d{10}$]/) !== -1) {
-      switch(str[str.search(/[^\d{10}$]/)]) {
-        case '+':
-          if (i === 0) {
-            this.setState({
-              result: Number(arr[i]) + Number(arr[i+1])
-
-            }, ()=> {});
-
-          } else {
-            alert(this.state.result);
-            this.setState(state => ({
-              result: state.result + Number(arr[i+1])
-            }))
-          }
-          i++;
-          break;
-      }
-      str = str.slice(str.search(/[^\d{10}$]/) + 1, str.length)
+  getPriority = (op) => {
+    switch (op) {
+      case '*' || '/' :
+        return 2;
+      case '+' || '-' :
+        return 1;
+        case '(' :
+          return 0;
     }
+  }
+
+  calculate = () => {
+    const str = this.state.input;
+    let postFixNotation = '';
+    const arr = str.split(/([^\d{10}$])/g);
+
+    let stack = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (Number.isFinite(Number(arr[i]))) {
+        postFixNotation = postFixNotation + arr[i];
+      } else {
+        while (stack.length !==0) {
+          if (this.getPriority(stack.lastItem) >= this.getPriority(arr[i])) {
+            
+          }
+        }
+         this.getPriority(stack.lastItem) >= this.getPriority(arr[i])){
+          postFixNotation = postFixNotation + stack.pop();
+        }
+        stack.push(arr[i]);
+      }
+    }
+    while(stack.length !== 0) {
+      postFixNotation = postFixNotation + stack.pop();
+    }
+
+    alert(postFixNotation);
+
+    
   }
 
   handleClick = (key) => {
