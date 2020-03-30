@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     input : '',
     operator: '',
+    result: 0
   }
 
   handleChange = (e) => {
@@ -34,40 +35,68 @@ class App extends Component {
         return 2;
       case '+' || '-' :
         return 1;
-        case '(' :
+      case '(' :
           return 0;
+      default :
+        return -1;
     }
   }
 
   calculate = () => {
     const str = this.state.input;
     let postFixNotation = '';
-    const arr = str.split(/([^\d{10}$])/g);
+    let j = 0;
+
+  let arr = str.replace(" ", "").split(/([^0-9])/g);
+  while (arr.indexOf("") !== -1) {
+    let idx = arr.indexOf("");
+    arr.splice(idx, 1);
+  }
+  console.log(arr);
+  let k = 0;
+  
 
     let stack = [];
-
     for (let i = 0; i < arr.length; i++) {
       if (Number.isFinite(Number(arr[i]))) {
         postFixNotation = postFixNotation + arr[i];
-      } else {
-        while (stack.length !==0) {
-          if (this.getPriority(stack.lastItem) >= this.getPriority(arr[i])) {
-            
-          }
-        }
-         this.getPriority(stack.lastItem) >= this.getPriority(arr[i])){
+      } else if (arr[i] === '(') {
+        stack.push(arr[i]);
+      } else if (arr[i] === ')') {
+        while (stack[stack.length - 1] !== '(') {
           postFixNotation = postFixNotation + stack.pop();
         }
-        stack.push(arr[i]);
+        stack.pop();
+      } else { // operator
+          while (stack.length !== 0 && this.getPriority(stack[stack.length - 1]) >= this.getPriority(arr[i])) {
+            postFixNotation = postFixNotation + stack.pop();
+          }
+          stack.push(arr[i]);
       }
     }
-    while(stack.length !== 0) {
+    
+    while(stack.length !== 0){
       postFixNotation = postFixNotation + stack.pop();
     }
-
     alert(postFixNotation);
 
-    
+    let stack2 = [];
+    let res;
+    for (let j = 0; j < postFixNotation.length; j++) {
+      if (postFixNotation[j] === '+') {
+        res = Number(stack2.pop()) + Number(stack2.pop());
+        stack2.push(res);
+      } else if (postFixNotation[j] === '-') {
+        res = -Number(stack2.pop()) + Number(stack2.pop());
+        stack2.push(res);
+      } else {
+        stack2.push(postFixNotation[j]);
+      }
+    }
+
+    this.setState({
+      result : stack2.pop()
+    })
   }
 
   handleClick = (key) => {
@@ -79,9 +108,6 @@ class App extends Component {
       this.setState({
         input: '',
         operator: '',
-        fisrtOperand : 0,
-        secondOperand: 0,
-        noOperand: true
       })
     } else if ( key.props.children === "=") {
       this.calculate();
@@ -96,7 +122,7 @@ class App extends Component {
     //   √
     // %
     // +
-    // −÷
+    // −÷×%√
     // ×
     
   }
