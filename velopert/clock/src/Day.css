@@ -1,0 +1,8 @@
+.day{
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.day + .day {
+    margin-left: 1rem;
+}

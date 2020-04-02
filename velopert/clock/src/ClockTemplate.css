@@ -1,9 +1,11 @@
 .clock-template {
     margin: 0 auto;
-    margin-top: 2rem;
-    background: gray;
-    width: 50%;
+    margin-top: 3rem;
+    width: 600px;
+    height: 500px;
+    border : 1px solid gainsboro;
 }
 .digital-clock {
-
+    margin: 0 auto;
+   justify-content: center;
 }

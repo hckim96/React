@@ -5,6 +5,8 @@ import DigitalClock from './DigitalClock';
 
 const date = new Date();
 
+const days = ['MON','TUE','WED','THU','FRI','SAT','SUN']
+
 class App extends Component {
   
   state = {
@@ -24,10 +26,12 @@ class App extends Component {
   }
   render(){
     const {time} = this.state;
-
+    
     return(
       <div className = "app">
-        <ClockTemplate digitalClock = {<DigitalClock time = {time}/>} >
+        <ClockTemplate digitalClock = {<DigitalClock time = {time}
+                                                    days = {days}
+        />} >
 
         </ClockTemplate>
         <div>

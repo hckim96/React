@@ -1,15 +1,35 @@
 
-
-.time {
-    align-items: center;
-    text-align: center;
+.digital-clock {
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
+
+}
+.year {
     font-size: 5rem;
+    font-weight: 200;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 5px black;
+}
+.days {
+    display:flex;
+    flex: 1;
+    margin: 0 auto;
+    
+
+}
+.time {
+    display: flex;
+    flex-direction: row;
+    font-size: 10rem;
+    text-align: center;
     font-weight: 500;
     color: white;
-    
+    text-shadow: 0 0 7px black;
 }
 
-.colon2 {
+.colon {
+
 }
 
