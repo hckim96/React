@@ -2,7 +2,9 @@
     font-size: 1rem;
     font-weight: 100;
 }
-
+.day-active {
+    border: 1px solid black;
+}
 .day + .day {
     margin-left: 1rem;
 }
